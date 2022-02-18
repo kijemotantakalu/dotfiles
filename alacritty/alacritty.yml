@@ -33,9 +33,9 @@ window:
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
-  #padding:
-  #  x: 0
-  #  y: 0
+  padding:
+    x: 20
+    y: 20
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
@@ -90,7 +90,7 @@ scrolling:
 # Font configuration
 font:
   # Normal (roman) font face
-  size: 13
+  size: 12
   normal:
     # Font family
     #
@@ -98,40 +98,40 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: Cozette
+    family: JetBrainsMono
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
 
   # Bold font face
-  bold:
+  #bold:
     # Font family
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family:  Cozette
+    #family:  Cozette
 
     # The `style` can be specified to pick a specific face.
     #style: Bold
 
   # Italic font face
-  italic:
+  #italic:
     # Font family
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family:  Cozette
+    #family:  Cozette
 
     # The `style` can be specified to pick a specific face.
     #style: Italic
 
   # Bold italic font face
-  bold_italic:
+  #bold_italic:
     # Font family
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family:  Cozette
+    #family:  Cozette
 
     # The `style` can be specified to pick a specific face.
     #style: Bold Italic
@@ -154,7 +154,7 @@ font:
 
   # Thin stroke font rendering (macOS only)
   #
-  # Thin strokes are suitable for retina displays, but for non-retina screens
+ # Thin strokes are suitable for retina displays, but for non-retina screens
   # it is recommended to set `use_thin_strokes` to `false`.
   #use_thin_strokes: true
 
@@ -326,7 +326,7 @@ live_config_reload: true
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 shell:
-  program: /usr/bin/zsh
+  program: /usr/bin/bash
   args:
     - --login
 
@@ -658,3 +658,4 @@ window.opacity: '0.5'
 
 import:
   - /home/kamil/.config/alacritty/dracula.yml
+ 
