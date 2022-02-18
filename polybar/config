@@ -29,11 +29,11 @@ alert = #bd2c40
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 27
+height = 48
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 6.0
-fixed-center = true
+fixed-center = false
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -56,12 +56,12 @@ module-margin-right = 2
 ;font-3 = FontAwesome5Free:style=Solid:size=10;4
 ;font-4 = FontAwesome5Free:style=Regular:size=10;4
 ;font-5 = FontAwesome5Brands:style=Regular:size=10;4
-font-0 = Cozette;1
+font-0 = JetBrainsMono:size=24;1
 
 modules-left = bspwm 
 modules-center = xwindow 
 ;modules-right = spotify spotify-prev spotify-play-pause spotify-next filesystem xkeyboard memory cpu wlan temperature powermenu
-modules-right = date xkeyboard memory cpu powermenu
+modules-right = date xkeyboard memory temperature cpu battery powermenu
 enable-ipc = true
 
 tray-position = right
@@ -125,7 +125,7 @@ label-occupied-padding = 2
 
 label-urgent = %index%!
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
+label-ugent-padding = 2
 
 label-empty = %index%
 label-empty-foreground = ${colors.foreground-alt}
@@ -133,6 +133,12 @@ label-empty-padding = 2
 
 ; Separator in between workspaces
 ; label-separator = |
+
+ws-icon-0 = I;I
+ws-icon-1 = II;II
+ws-icon-2 = III;III
+ws-icon-3 = IV;IV
+ws-icon-4 = V;V
 
 [module/i3]
 type = internal/i3
@@ -214,7 +220,7 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = "cpu "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
 label = %percentage:2%%
@@ -222,7 +228,7 @@ label = %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = "mem "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 label = %percentage_used%%
@@ -344,11 +350,13 @@ full-at = 98
 
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = #ffb52a
+format-charging-prefix = "chr "
 
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
+format-discharging-prefix = "bat "
 
-format-full-prefix = " "
+format-full-prefix = "bat "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
@@ -376,6 +384,7 @@ warn-temperature = 60
 
 format = <ramp> <label>
 format-underline = #f50a4d
+format-prefix = "tmp "
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
@@ -395,20 +404,20 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = 
+label-open = <
 label-open-foreground = ${colors.secondary}
-label-close = 
+label-close = >
 label-close-foreground = ${colors.secondary}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
-menu-0-0 = 
+menu-0-0 = rbt
 menu-0-0-exec = menu-open-1
-menu-0-1 =  
+menu-0-1 = slp 
 menu-0-1-exec = menu-open-4
-menu-0-2 = ⏻
+menu-0-2 = pwr
 menu-0-2-exec = menu-open-2
-menu-0-3 = 
+menu-0-3 = lck
 menu-0-3-exec = menu-open-3
 
 menu-1-0 = 
@@ -472,4 +481,3 @@ type = custom/script
 exec = echo " "
 format = <label>
 click-left = playerctl next -p spotify
-
